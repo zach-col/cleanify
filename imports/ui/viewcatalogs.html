@@ -1,0 +1,92 @@
+<template name="viewcatalogs">
+<div class="container">
+	<h1 class="header">All Catalogs</h1>
+	<br>
+	<div class="text-center">
+	<a class="btn btn-success" style="display: inline-block; margin: 0 auto;" href="/createcatalog/">Create a catalog</a>
+	<br><br>
+	</div>
+
+	<br>
+	<div class="row">
+		{{#each catalogs}}
+
+			<div class="col-md-4 item">
+				<h2 class="text-center">{{catalogname}}</h2>
+				<p class="text-center">{{catalogdescription}}</p>
+
+				<div class="text-center">
+				<a class="btn btn-primary" style="display: inline-block; margin: 0 auto;" href="/viewcatalogitems/{{_id}}">View catalog</a>
+				<br><br>
+				</div>
+
+				<div class="text-center">
+					<button type="button" class="btn btn-success" id="edit" data-toggle="modal" data-target="#editModal">Edit catalog</button>
+					<!-- delete button -->
+					<button type="button" class="btn btn-danger delete" data-toggle="modal" data-target="#exampleModal">x</button>
+				</div>
+			</div>
+		{{/each}}
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete catalog</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+		  <div class="form-group">
+		  	<p class="text-center">
+		    	<label for="itemdescription" class="text-center">Are you sure you want to delete <span id="clickedItem"></span>?</label>
+			</p>
+		    <p class="text-center">This will delete all of the catalogs items*</p>
+		  </div>
+		<div class="text-center">
+			<button type="button" class="btn btn-danger deleteItem"  data-toggle="modal" data-target="#exampleModal">Yes</button>
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Edit catalog</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		 <form class="catalogForm">
+			  <div class="form-group">
+			    <label for="catalogname">Catalog name</label>
+			    <input type="text" class="form-control" id="catalogName" maxlength="25">
+			  </div>
+
+			  <div class="form-group">
+			    <label for="catalogdescription">Catalog description</label>
+			    <textarea class="form-control" id="catalogDescription" rows="3" maxlength="200"></textarea>
+			  </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        <button type="submit" class="btn btn-success" id="submitEdit" data-toggle="modal" data-target="#editModal">Save changes</button>
+		      </div>
+		 </form>
+      </div>
+    </div>
+  </div>
+</div>
+</template>

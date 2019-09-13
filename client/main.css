@@ -1,4 +1,66 @@
 body {
-  padding: 10px;
   font-family: sans-serif;
+
+}
+.header {
+	color: black;
+	text-align: center;
+	margin-top: 50px;
+}
+
+.modalCenter {
+	text-align: center;
+}
+
+.subContent {
+	text-align: center;
+	font-size: 20px;
+}
+
+.item {
+	margin-bottom: 50px;
+}
+
+.headerText {
+	color: red;
+	padding: 20px;
+	text-align: left;
+}
+
+.hero-image {
+  background-image: url("/images/Meteor.jpg");
+  background-color: #cccccc;
+  height: 700px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: left;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  background-color:rgba(255,255,255,0.9);
+  padding: 25px;
+  border-radius: 5px
+}
+
+.hero-text h1 {
+	color: red;
+}
+
+#homeInfoHeader {
+	text-align: center;
+	margin-top: 50px;
+	color: black;
+	margin-bottom: 50px;
+}
+
+.homeSubInfo {
+	text-align: center;
+	font-size: 25px;
 }

@@ -1,0 +1,16 @@
+<template name="navbar">
+	<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a class="active" href="/" onclick="closeNav()">Home</a>
+		{{#if currentUser}}
+			<a href="/createcatalog" onclick="closeNav()">Create catalog</a>
+			<a href="/viewcatalogs" onclick="closeNav()">View Catalogs</a>
+			<a href="/Profile" onclick="closeNav()">Profile</a>
+			<a href="#" id="signOut" onclick="closeNav()">Sign out</a>
+		{{else}}
+			<a href="/signup" onclick="closeNav()">Signup</a>
+			<a href="/signin" onclick="closeNav()">Signin</a>
+		{{/if}}
+	</div>
+	<h1 onclick="openNav()" class=" headerText" style="cursor:pointer"><span style="float: left; color: black;">&#9776;</span><span style="text-align: left; margin-left: 20px;">Cleanify</span></h1>
+</template>

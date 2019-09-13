@@ -1,0 +1,54 @@
+<template name="viewcatalogitem">
+	<div class="container">
+		<br>
+		<h4>
+			{{#each catalogLink}}
+				<a href="/viewcatalogitems/{{catalogid}}"><i class="fas fa-arrow-left"></i> View
+		        {{#with catalog}}
+					{{catalogname}}
+		        {{/with}}
+		        catalog
+				</a>
+
+			{{/each}}
+		</h4>
+	</div>
+<div class="container">
+	<br>
+	<h2 class="text-center">{{item.itemname}}</h2>
+	<p class="text-center">{{item.itemdescription}}</p>
+	<div class="text-center">
+		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" id="edit">Edit item</button>
+	</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit item</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		 <form class="itemForm">
+			  <div class="form-group">
+			    <label for="itemname">Item name</label>
+			    <input type="text" class="form-control" id="itemName" maxlength="25">
+			  </div>
+
+			  <div class="form-group">
+			    <label for="itemdescription">Item description</label>
+			    <textarea class="form-control" id="itemDescription" rows="3" maxlength="200"></textarea>
+			  </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        <button type="submit" class="btn btn-success" id="submitEdit" data-toggle="modal" data-target="#exampleModal">Save changes</button>
+		      </div>
+		 </form>
+      </div>
+    </div>
+  </div>
+</div>
+</template>
