@@ -43,7 +43,7 @@ Router.map(function(){
         onBeforeAction: function () {
             var currentUser = Meteor.userId();
             if (currentUser) {
-                Bert.alert('Logged in', 'success', 'growl-top-right');
+                Bert.alert('Signed in', 'success', 'growl-top-right');
                 Router.go("home");
             } else {
             	this.next()

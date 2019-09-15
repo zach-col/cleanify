@@ -22,7 +22,7 @@ Template.signup.events({
             if(Meteor.user()){
               Bert.alert('Signed in', 'success', 'growl-top-right');
             } else {
-                Bert.alert('oops something went wrong', 'danger', 'growl-top-right');
+              Bert.alert('Attempting to create account', 'success', 'growl-top-right');
             }
         } else if(password != password2){
                 Bert.alert('Passwords must match', 'danger', 'growl-top-right');

@@ -16,6 +16,16 @@ Meteor.users.deny({
 });
 
 if(Meteor.isServer){
+
+	Meteor.publish('profile', function profilePublication() {
+		if(!this.userId){
+			return false;
+			throw new Meteor.Error('not authorized');
+		} else {
+	        return Meteor.users.find({_id: this.userId})
+		}
+	});
+
     // get catalogs from collection
     Meteor.publish('catalogs', function catalogsPublication() {
         // make sure user is logged in
